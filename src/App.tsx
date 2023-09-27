@@ -1,4 +1,4 @@
-import { ThemeProvider } from '@mui/material'
+import { CssBaseline, ThemeProvider } from '@mui/material'
 import React from 'react'
 import { Provider as ReduxStoreProvider } from 'react-redux'
 import { Routes, Route } from 'react-router-dom'
@@ -11,6 +11,7 @@ import muiTheme from './utils/theme.config'
 const App: React.FC = () => {
   return (
     <ThemeProvider theme={muiTheme}>
+      <CssBaseline />
       <ReduxStoreProvider store={store}>
         <HistoryRouter history={history}>
           <Routes>

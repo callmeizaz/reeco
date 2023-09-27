@@ -11,18 +11,31 @@ const BREAKPOINTS = {
 const theme = {
   palette: {
     background: {
-      default: '#FFF',
+      default: '#fbfbfb',
     },
     primary: {
       contrastText: '#FFF',
-      main: '#27CA7D',
+      main: '#21633f',
     },
     secondary: {
       contrastText: '#FFF',
-      main: '#939393',
+      main: '#a939393',
     },
   },
   typography: {
+    body: {
+      '@media (min-width:1440px) and (max-width:2559px)': {
+        fontSize: '1rem',
+        lineHeight: '1.688rem',
+      },
+      '@media (min-width:2160px)': { fontSize: '1rem', lineHeight: '1.688rem' },
+      '@media (min-width:640px) and (max-width:1439px)': {
+        fontSize: '1rem',
+        lineHeight: '1.625rem',
+      },
+      fontSize: '1rem',
+      lineHeight: '1.563rem',
+    },
     bodylarge: {
       '@media (min-width:1440px) and (max-width:2559px)': {
         fontSize: '1.313rem',
@@ -39,22 +52,6 @@ const theme = {
       fontSize: '1.25rem',
       lineHeight: '1.938rem',
     },
-    color: 'rgba(23,28,38,1)',
-    body: {
-      '@media (min-width:1440px) and (max-width:2559px)': {
-        fontSize: '1rem',
-        lineHeight: '1.688rem',
-      },
-      '@media (min-width:2160px)': { fontSize: '1rem', lineHeight: '1.688rem' },
-      '@media (min-width:640px) and (max-width:1439px)': {
-        fontSize: '1rem',
-        lineHeight: '1.625rem',
-      },
-      fontSize: '1rem',
-      lineHeight: '1.563rem',
-    },
-    fontFamily: 'Montserrat',
-    fontWeight: '400',
     bodymedium: {
       '@media (min-width:1440px) and (max-width:2559px)': {
         fontSize: '1.125rem',
@@ -71,7 +68,40 @@ const theme = {
       fontSize: '1.125rem',
       lineHeight: '1.75rem',
     },
+    bodysmall: {
+      '@media (min-width:1440px) and (max-width:2559px)': {
+        fontSize: '0.875rem',
+        lineHeight: '1.5rem',
+      },
+      '@media (min-width:2160px)': {
+        fontSize: '0.875rem',
+        lineHeight: '1.5rem',
+      },
+      '@media (min-width:640px) and (max-width:1439px)': {
+        fontSize: '0.875rem',
+        lineHeight: '1.438rem',
+      },
+      fontSize: '0.875rem',
+      lineHeight: '1.438rem',
+    },
+    caption: {
+      fontSize: '0.813rem',
+      fontWeight: '600',
+      lineHeight: '1.25rem',
+    },
+    color: 'rgba(23,28,38,1)',
+    fontFamily: 'Montserrat',
+    fontWeight: '400',
+    label: {
+      fontSize: '0.875rem',
+      fontWeight: '600',
+      lineHeight: '1.25rem',
+    },
     letterSpacing: '0px',
+    small: {
+      fontSize: '0.875rem',
+      lineHeight: '1.25rem',
+    },
     subtitle1: {
       '@media (min-width:1440px) and (max-width:2559px)': {
         fontSize: '1.688rem',
@@ -88,21 +118,25 @@ const theme = {
       fontSize: '1.563rem',
       lineHeight: '2rem',
     },
-    bodysmall: {
+    subtitle2: {
       '@media (min-width:1440px) and (max-width:2559px)': {
-        fontSize: '0.875rem',
-        lineHeight: '1.5rem',
+        fontSize: '1.188rem',
+        fontWeight: '600',
+        lineHeight: '1.625rem',
       },
       '@media (min-width:2160px)': {
-        fontSize: '0.875rem',
-        lineHeight: '1.5rem',
+        fontSize: '1.188rem',
+        fontWeight: '600',
+        lineHeight: '1.625rem',
       },
       '@media (min-width:640px) and (max-width:1439px)': {
-        fontSize: '0.875rem',
-        lineHeight: '1.438rem',
+        fontSize: '1.125rem',
+        fontWeight: '600',
+        lineHeight: '1.563rem',
       },
-      fontSize: '0.875rem',
-      lineHeight: '1.438rem',
+      fontSize: '1.125rem',
+      fontWeight: '600',
+      lineHeight: '1.563rem',
     },
     title1: {
       '@media (min-width:1440px) and (max-width:2559px)': {
@@ -141,11 +175,6 @@ const theme = {
       fontSize: '2.625rem',
       lineHeight: '3rem',
     },
-    caption: {
-      fontSize: '0.813rem',
-      fontWeight: '600',
-      lineHeight: '1.25rem',
-    },
     title3: {
       '@media (min-width:1440px) and (max-width:2559px)': {
         fontSize: '2.438rem',
@@ -161,35 +190,6 @@ const theme = {
       },
       fontSize: '2rem',
       lineHeight: '2.313rem',
-    },
-    label: {
-      fontSize: '0.875rem',
-      fontWeight: '600',
-      lineHeight: '1.25rem',
-    },
-    small: {
-      fontSize: '0.875rem',
-      lineHeight: '1.25rem',
-    },
-    subtitle2: {
-      '@media (min-width:1440px) and (max-width:2559px)': {
-        fontSize: '1.188rem',
-        fontWeight: '600',
-        lineHeight: '1.625rem',
-      },
-      '@media (min-width:2160px)': {
-        fontSize: '1.188rem',
-        fontWeight: '600',
-        lineHeight: '1.625rem',
-      },
-      '@media (min-width:640px) and (max-width:1439px)': {
-        fontSize: '1.125rem',
-        fontWeight: '600',
-        lineHeight: '1.563rem',
-      },
-      fontSize: '1.125rem',
-      fontWeight: '600',
-      lineHeight: '1.563rem',
     },
   },
 }
@@ -277,6 +277,20 @@ const muiTheme = createTheme({
         },
       },
     },
+    MuiDialogContent: {
+      styleOverrides: {
+        root: {
+          padding: '0px',
+        },
+      },
+    },
+    MuiDialogTitle: {
+      styleOverrides: {
+        root: {
+          padding: '0px',
+        },
+      },
+    },
     MuiFormControlLabel: {
       styleOverrides: {
         root: {
@@ -284,16 +298,17 @@ const muiTheme = createTheme({
         },
       },
     },
+    MuiFormHelperText: {
+      styleOverrides: {
+        root: {
+          marginLeft: 2,
+          marginRight: 0,
+        },
+      },
+    },
     MuiLink: {
       defaultProps: {
         underline: 'none',
-      },
-    },
-    MuiDialogContent: {
-      styleOverrides: {
-        root: {
-          padding: '0px',
-        },
       },
     },
     MuiOutlinedInput: {
@@ -319,26 +334,6 @@ const muiTheme = createTheme({
         },
       },
     },
-    MuiDialogTitle: {
-      styleOverrides: {
-        root: {
-          padding: '0px',
-        },
-      },
-    },
-    MuiTextField: {
-      defaultProps: {
-        variant: 'outlined',
-      },
-    },
-    MuiFormHelperText: {
-      styleOverrides: {
-        root: {
-          marginLeft: 2,
-          marginRight: 0,
-        },
-      },
-    },
     MuiRadio: {
       styleOverrides: {
         root: {
@@ -348,6 +343,11 @@ const muiTheme = createTheme({
           color: 'rgba(22,25,29,0.2)',
           transform: 'scale(0.8)',
         },
+      },
+    },
+    MuiTextField: {
+      defaultProps: {
+        variant: 'outlined',
       },
     },
     MuiTypography: {
