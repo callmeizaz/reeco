@@ -1,20 +1,14 @@
-import { defineConfig } from "vitest/config"
-import react from "@vitejs/plugin-react"
+import react from '@vitejs/plugin-react-swc'
+import { defineConfig } from 'vite'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
-  server: {
-    open: true,
-  },
   build: {
-    outDir: "build",
     sourcemap: true,
   },
-  test: {
-    globals: true,
-    environment: "jsdom",
-    setupFiles: "src/setupTests",
-    mockReset: true,
+  plugins: [react()],
+  server: {
+    host: true,
+    port: 3000,
   },
 })

@@ -1,2 +1,2 @@
-# Auto detect text files and perform LF normalization
-* text=auto
+mocks/* linguist-vendored
+public/mockServiceWorker.js linguist-vendored
